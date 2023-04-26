@@ -1,0 +1,8 @@
+LICENSE.txt
+setup.py
+ajcpkg/__init__.py
+ajcpkg.egg-info/PKG-INFO
+ajcpkg.egg-info/SOURCES.txt
+ajcpkg.egg-info/dependency_links.txt
+ajcpkg.egg-info/entry_points.txt
+ajcpkg.egg-info/top_level.txt
