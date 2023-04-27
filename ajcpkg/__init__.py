@@ -4,7 +4,7 @@ import time
 import requests
 import matplotlib.pyplot as plt
 from IPython.core.pylabtools import print_figure
-from IPython.display import HTML
+from IPython.display import display, HTML
 
 print("Loading ajcpkg! Version 3. This imports the works class")
 
@@ -51,7 +51,7 @@ class Works:
         citedby = self.data["cited_by_count"]
 
         oa = self.data["id"]
-        s = f'{authors},{title}, {volume}{issue}{pages}, ({year}), {self.data["doi"]}. cited by: {citedby}. {oa}'
+        s = f'{authors},{title},{volume}{issue}{pages},({year}),self.data["doi"]. cited by: {citedby}. {oa}'
         return s
 
     def _repr_markdown_(self):
@@ -108,15 +108,13 @@ class Works:
 
     @property
     def ris(self):
-        """heres the ris function"""
         fields = []
-        if self.data["type"] == "journal-article":
-            fields += ["TY  - JOUR"]
-
+        if self.data['type'] == 'journal-article':
+            fields += ['TY  - JOUR']
         else:
             raise Exception("Unsupported type {self.data['type']}")
 
-        for author in self.data["authorships"]:
+        for author in self.data['authorships']:
             fields += [f'AU  - {author["author"]["display_name"]}']
 
         fields += [f'PY  - {self.data["publication_year"]}']
@@ -124,18 +122,20 @@ class Works:
         fields += [f'JO  - {self.data["host_venue"]["display_name"]}']
         fields += [f'VL  - {self.data["biblio"]["volume"]}']
 
-        if self.data["biblio"]["issue"]:
+        if self.data['biblio']['issue']:
             fields += [f'IS  - {self.data["biblio"]["issue"]}']
 
         fields += [f'SP  - {self.data["biblio"]["first_page"]}']
         fields += [f'EP  - {self.data["biblio"]["last_page"]}']
         fields += [f'DO  - {self.data["doi"]}']
-        fields += ["ER  -"]
+        fields += ['ER  -']
 
-        ris = "\n".join(fields)
-        ris64 = base64.b64encode(ris.encode("utf-8")).decode("utf8")
-        uri = f'<pre>{ris}<pre><br><a href="data:text/plain;base64,{ris64}" download="ris">Download RIS</a>'
-        return HTML(uri)
+        ris = '\n'.join(fields)
+        ris64 = base64.b64encode(ris.encode('utf-8')).decode('utf8')
+        uri = f'<pre>{ris}</pre><br><a href="data:text/plain;base64,{ris64}" download="ris">Download RIS</a>'
+
+        display(HTML(uri))
+        return ris
 
     def related_works(self):
         """related works function"""
