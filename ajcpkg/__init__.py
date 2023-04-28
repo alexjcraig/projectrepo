@@ -108,6 +108,7 @@ class Works:
 
     @property
     def ris(self):
+        """this function will print the RIS"""
         fields = []
         if self.data["type"] == "journal-article":
             fields += ["TY  - JOUR"]
@@ -128,7 +129,6 @@ class Works:
         fields += [f'SP  - {self.data["biblio"]["first_page"]}']
         fields += [f'EP  - {self.data["biblio"]["last_page"]}']
         fields += [f'DO  - {self.data["doi"]}']
-        fields += ["ER  -"]
 
         ris = "\n".join(fields)
         ris64 = base64.b64encode(ris.encode("utf-8")).decode("utf8")

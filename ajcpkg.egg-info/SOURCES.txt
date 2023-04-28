@@ -1,8 +1,12 @@
 LICENSE.txt
+README.md
 setup.py
 ajcpkg/__init__.py
+ajcpkg/main.py
+ajcpkg/test_ris.py
 ajcpkg.egg-info/PKG-INFO
 ajcpkg.egg-info/SOURCES.txt
 ajcpkg.egg-info/dependency_links.txt
 ajcpkg.egg-info/entry_points.txt
 ajcpkg.egg-info/top_level.txt
+ajcpkg.egg-info/.ipynb_checkpoints/entry_points-checkpoint.txt

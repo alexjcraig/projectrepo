@@ -108,6 +108,7 @@ class Works:
 
     @property
     def ris(self):
+        """this function will print the RIS"""
         fields = []
         if self.data["type"] == "journal-article":
             fields += ["TY  - JOUR"]

@@ -11,7 +11,8 @@ VL  - 5
 IS  - 6
 SP  - 3894
 EP  - 3899
-DO  - https://doi.org/10.1021/acscatal.5b00538"""
+DO  - https://doi.org/10.1021/acscatal.5b00538
+ER  -"""
 
 
 def test_ris():
