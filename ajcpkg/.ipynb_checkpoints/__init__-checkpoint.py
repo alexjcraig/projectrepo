@@ -1,4 +1,4 @@
-"""module docstring, please be happy now pylint"""
+"""module docstring, please be happy now pylint. adding text for push"""
 import base64
 import time
 import requests
@@ -129,7 +129,6 @@ class Works:
         fields += [f'SP  - {self.data["biblio"]["first_page"]}']
         fields += [f'EP  - {self.data["biblio"]["last_page"]}']
         fields += [f'DO  - {self.data["doi"]}']
-        fields += ["ER  -"]
 
         ris = "\n".join(fields)
         ris64 = base64.b64encode(ris.encode("utf-8")).decode("utf8")
